@@ -13,6 +13,30 @@ function problemParsing(tag){
     });
 }
 
+function createHtml(){
+    alert(document.documentElement.innerHTML);
+}
+
+function createCode(){
+    alert("test");
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var htmlbtn = document.getElementById('htmlbtn');
+
+    htmlbtn.addEventListener('click', function() {
+        createHtml();
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var codebtn = document.getElementById('codebtn');
+
+    codebtn.addEventListener('click', function() {
+        createCode();
+    });
+});
+
 problemParsing("#problem-info");
 problemParsing("#problem_title");
 problemParsing("#problem_description");
