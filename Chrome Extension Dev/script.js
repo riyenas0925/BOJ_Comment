@@ -31,6 +31,26 @@ function problemParsing(tag, selector){
     }
 }
 
+function time(option){
+    var now = new Date();
+
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var date = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+
+    if(option == 0){
+        var time = year + "년 " + month + "월 " + date + "일 " + hour + "시 " + minute + "분 " + second + "초";
+        return time;
+    }
+    else{
+        var time = year + "년 " + month + "월 " + date + "일 " + "시 " + "분 " + "초";
+        return time;
+    }
+}
+
 function removeTag(text){
     text = text.replace(/<br\/>/ig, "\n"); 
     text = text.replace(/<(sup)([^>]*)>/gi,"^")
@@ -47,12 +67,10 @@ function removeTag(text){
 }
 
 function createHtml(){
-    alert(document.documentElement.innerHTML);
     console.log(document.documentElement.innerHTML);
 }
 
 function createCode(){
-    alert(createComments());
     console.log(createComments());
 }
 
@@ -81,8 +99,8 @@ function createComments(){
     comments += "*Description : " + problemComments[4] + "\n";
     comments += "*Input : " + problemComments[5] + "\n";
     comments += "*Output : " + problemComments[6] + "\n";
-    comments += "*Start Time : " + "\n";
-    comments += "*End Time : " + "\n";
+    comments += "*Start Time : " + time(0) + "\n";
+    comments += "*End Time : " + time(1) + "\n";
     comments += "*********************************************************************/";
 
     return comments;
