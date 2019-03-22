@@ -1,30 +1,28 @@
 {
-    "manifest_version": 2,
-   
-    "name": "Baekjoon Online Judge Comments",
-    "description": "Baekjoon Online Judge comments make program",
-    "version": "1.0",
-   
-    "browser_action": {
-      "default_icon": "icon.png",
-      "default_popup": "popup.html"
-    },
-    "permissions": [
-      "https://*.acmicpc.net/problem/*",
-      "activeTab",
-      "storage"
-    ],
-    "content_scripts": [
-      {
-        "matches": [
-          "https://www.acmicpc.net/problem/*"
-        ],
-        "js": [
-          "script.js"
-        ],
-        "css": [
-          "style.css"
-        ]
-      }
-    ]
+  "manifest_version": 2,
+  
+  "name": "Baekjoon Online Judge Comments",
+  "author": "riyenas0925",
+  "description": "Baekjoon Online Judge comments make program",
+  "homepage_url": "https://github.com/riyenas0925/Chorme-Extension-BOJ-Comments-generator",
+  "version": "1.1",
+
+  "background": {
+    "scripts" : ["background.js"]
+  },
+
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ], 
+
+  "icons": { 
+   "128": "icon.png" 
+  },
+
+  "browser_action": {
+    "defualt_title": "Title",
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   }
+}
