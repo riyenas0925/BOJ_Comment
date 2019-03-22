@@ -76,10 +76,12 @@ function copyToClipboard(val) {
   }
 
 function createHtml(){
+    alert("HTML 복사되었습니다!")
     copyToClipboard(document.documentElement.innerHTML);
 }
 
 function createCode(){
+    alert("주석이 복사되었습니다!")
     copyToClipboard(createComments());
 }
 
