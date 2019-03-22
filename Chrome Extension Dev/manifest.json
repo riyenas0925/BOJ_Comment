@@ -10,7 +10,21 @@
       "default_popup": "popup.html"
     },
     "permissions": [
+      "https://*.acmicpc.net/problem/*",
       "activeTab",
       "storage"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.acmicpc.net/problem/*"
+        ],
+        "js": [
+          "script.js"
+        ],
+        "css": [
+          "style.css"
+        ]
+      }
     ]
   }
