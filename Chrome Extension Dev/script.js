@@ -66,12 +66,21 @@ function removeTag(text){
     return text;
 }
 
+function copyToClipboard(val) {
+    var t = document.createElement("textarea");
+    document.body.appendChild(t);
+    t.value = val;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+  }
+
 function createHtml(){
-    console.log(document.documentElement.innerHTML);
+    copyToClipboard(document.documentElement.innerHTML);
 }
 
 function createCode(){
-    console.log(createComments());
+    copyToClipboard(createComments());
 }
 
 document.addEventListener('DOMContentLoaded', function() {
