@@ -3,9 +3,9 @@
   
   "name": "BOJ Blog Post",
   "author": "riyenas0925",
-  "description": "Baekjoon Online Judge comments & HTML make program",
+  "description": "Baekjoon Online Judge Blog post HTML & comments make program",
   "homepage_url": "https://github.com/riyenas0925/Chorme-Extension-BOJ-Comments-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "background": {
     "scripts" : ["js/background.js"]
