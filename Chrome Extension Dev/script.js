@@ -1,4 +1,4 @@
-var problemComments = new Array("","","","","","");
+﻿var problemComments = new Array("","","","","","");
 var i = 0;
 
 function problemParsing(tag, selector){
