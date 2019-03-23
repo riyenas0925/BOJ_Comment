@@ -77,7 +77,12 @@ function copyToClipboard(val) {
 
 function createHtml(){
     alert("HTML 복사되었습니다!")
-    copyToClipboard(document.documentElement.innerHTML);
+    var html = document.documentElement.innerHTML;
+
+    html = html.replace(/(\<button[^>]+[\>])([^<]*)(\<\/button\>)/g, "");
+    html = html.replace(/\/upload\/201003\/dd.bmp/g, url + "/upload/201003/dd.bmp");
+
+    copyToClipboard(html);
 }
 
 function createCode(){
