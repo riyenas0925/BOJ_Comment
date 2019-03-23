@@ -11,20 +11,20 @@ function problemParsing(tag, selector){
             problemComments[i] = removeTag(problem);
             i++;
 
-            if(typeof problem != null){
-                document.querySelector(tag).innerHTML = problem;
-            }
+            document.querySelector(tag).innerHTML = problem;
         });
-    }
-    else{
+    } else{
         chrome.tabs.executeScript({
             code:'document.querySelector("' + tag + '").innerHTML'
         }, function(result){
             problem = result[0];
-            problemComments[i] = removeTag(problem);
-            i++;
 
-            if(typeof problem != null){
+            if(selector == null){
+                problemComments[i] = problem;
+                i++;
+            } else {
+                problemComments[i] = removeTag(problem);
+                i++;
                 document.querySelector(selector).innerHTML = problem;
             }
         });
@@ -78,10 +78,7 @@ function copyToClipboard(val) {
 function createHtml(){
     alert("HTML 복사되었습니다!")
     var html = document.documentElement.innerHTML;
-
     html = html.replace(/(\<button[^>]+[\>])([^<]*)(\<\/button\>)/g, "");
-    html = html.replace(/\/upload\/201003\/dd.bmp/g, url + "/upload/201003/dd.bmp");
-
     copyToClipboard(html);
 }
 
@@ -124,8 +121,8 @@ function createComments(){
 
 problemParsing("#problem-info");
 problemParsing("#problem_title");
-problemParsing("body > div.wrapper > div.container.content > div.row > div:nth-child(2) > ul > li.active > a", "#problem_number");
-problemParsing(".username");
+problemParsing("body > div.wrapper > div.container.content > div.row > div:nth-child(2) > ul > li.active > a", null);
+problemParsing(".username", null);
 problemParsing("#problem_description");
 problemParsing("#problem_input");
 problemParsing("#problem_output");
