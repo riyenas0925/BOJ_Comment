@@ -1,6 +1,11 @@
 ﻿var problemComments = new Array("","","","","","");
 var i = 0;
 
+var codeLanguage = new Array(
+    "#include<stdio.h>\n\n int main(void){\n\n\treturn 0;\n}",
+    "#include<iostream>\n\n int main(void){\n\n\treturn 0;\n}"
+)
+
 function problemParsing(tag, selector){
 
     if(arguments.length == 1){
@@ -73,7 +78,7 @@ function copyToClipboard(val) {
     t.select();
     document.execCommand('copy');
     document.body.removeChild(t);
-  }
+}
 
 function createHtml(){
     alert("HTML 복사되었습니다!")
@@ -114,7 +119,8 @@ function createComments(){
     comments += "*Output : " + problemComments[6] + "\n";
     comments += "*Start Time : " + time(0) + "\n";
     comments += "*End Time : " + time(1) + "\n";
-    comments += "*********************************************************************/";
+    comments += "*********************************************************************/\n\n";
+    comments += codeLanguage[1];
 
     return comments;
 }
