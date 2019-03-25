@@ -1,6 +1,13 @@
 ﻿var problemComments = new Array("","","","","","");
 var i = 0;
 
+var codeLanguage = new Array(
+    "",
+    "#include<stdio.h>\n\nint main(void) {\n\n\treturn 0;\n}",
+    "#include<iostream>\nusing namespace std;\n\nint main(void) {\n\n\treturn 0;\n}",
+    "public class Main {\n\n\tpublic static void main(String[] args) {\t\n\n\t}\n}"
+)
+
 function problemParsing(tag, selector){
 
     if(arguments.length == 1){
@@ -73,7 +80,7 @@ function copyToClipboard(val) {
     t.select();
     document.execCommand('copy');
     document.body.removeChild(t);
-  }
+}
 
 function createHtml(){
     alert("HTML 복사되었습니다!")
@@ -114,9 +121,17 @@ function createComments(){
     comments += "*Output : " + problemComments[6] + "\n";
     comments += "*Start Time : " + time(0) + "\n";
     comments += "*End Time : " + time(1) + "\n";
-    comments += "*********************************************************************/";
-
+    comments += "*********************************************************************/\n\n";
+    comments += selectLanguage();
+    
     return comments;
+}
+
+function selectLanguage(){
+    var i = document.getElementById("selectLanguage").value;
+
+    console.log(i);
+    return codeLanguage[i];
 }
 
 problemParsing("#problem-info");
