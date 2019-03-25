@@ -2,8 +2,10 @@
 var i = 0;
 
 var codeLanguage = new Array(
-    "#include<stdio.h>\n\n int main(void){\n\n\treturn 0;\n}",
-    "#include<iostream>\n\n int main(void){\n\n\treturn 0;\n}"
+    "",
+    "#include<stdio.h>\n\nint main(void) {\n\n\treturn 0;\n}",
+    "#include<iostream>\nusing namespace std;\n\nint main(void) {\n\n\treturn 0;\n}",
+    "public class Main {\n\n\tpublic static void main(String[] args) {\t\n\n\t}\n}"
 )
 
 function problemParsing(tag, selector){
@@ -120,9 +122,16 @@ function createComments(){
     comments += "*Start Time : " + time(0) + "\n";
     comments += "*End Time : " + time(1) + "\n";
     comments += "*********************************************************************/\n\n";
-    comments += codeLanguage[1];
-
+    comments += selectLanguage();
+    
     return comments;
+}
+
+function selectLanguage(){
+    var i = document.getElementById("selectLanguage").value;
+
+    console.log(i);
+    return codeLanguage[i];
 }
 
 problemParsing("#problem-info");
