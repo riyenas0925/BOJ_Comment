@@ -14,7 +14,7 @@ function problemParsing(tag, selector){
         chrome.tabs.executeScript({
             code:'document.querySelector("' + tag + '").innerHTML'
         }, function(result){
-            problem = result[0];
+            var problem = result[0];
             problemComments[i] = removeTag(problem);
             i++;
 
@@ -24,7 +24,7 @@ function problemParsing(tag, selector){
         chrome.tabs.executeScript({
             code:'document.querySelector("' + tag + '").innerHTML'
         }, function(result){
-            problem = result[0];
+            var problem = result[0];
 
             if(selector == null){
                 problemComments[i] = problem;
@@ -49,12 +49,10 @@ function time(option){
     var second = now.getSeconds();
 
     if(option == 0){
-        var time = year + "년 " + month + "월 " + date + "일 " + hour + "시 " + minute + "분 " + second + "초";
-        return time;
+        return year + "년 " + month + "월 " + date + "일 " + hour + "시 " + minute + "분 " + second + "초";
     }
     else{
-        var time = year + "년 " + month + "월 " + date + "일 " + "시 " + "분 " + "초";
-        return time;
+        return year + "년 " + month + "월 " + date + "일 " + "시 " + "분 " + "초";
     }
 }
 
@@ -63,8 +61,8 @@ function removeTag(text){
     text = text.replace(/<(sup)([^>]*)>/gi,"^")
     text = text.replace(/<(sub)([^>]*)>/gi,"_")
     text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
-    text = text.replace(/\	/g,"");
-    text = text.replace(/\&nbsp;/g," ");
+    text = text.replace(/	/g,"");
+    text = text.replace(/&nbsp;/g," ");
     text = text.replace(/\s+$/," ");
     text = text.replace(/\n/g,"");
     text = text.replace(/&lt;/g,"<");
@@ -85,7 +83,8 @@ function copyToClipboard(val) {
 function createHtml(){
     alert("HTML 복사되었습니다!")
     var html = document.documentElement.innerHTML;
-    html = html.replace(/(\<button[^>]+[\>])([^<]*)(\<\/button\>)/g, "");
+    html = html.replace(/(<button[^>]+[>])([^<]*)(<\/button>)/g, "");
+    html = html.replace(/(<select[^>]+[>])([^]*)(<\/select>)/g, "");
     copyToClipboard(html);
 }
 
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function createComments(){
-    comments = "";
+    var comments = "";
     comments += "/*********************************************************************\n";
     comments += "*Title : " + problemComments[1] + "\n";
     comments += "*Number : " + problemComments[2] + "\n";
@@ -129,8 +128,6 @@ function createComments(){
 
 function selectLanguage(){
     var i = document.getElementById("selectLanguage").value;
-
-    console.log(i);
     return codeLanguage[i];
 }
 
