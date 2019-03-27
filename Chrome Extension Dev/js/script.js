@@ -4,7 +4,7 @@ var i = 0;
 var codeLanguage = new Array(
     "",
     "#include<stdio.h>\n\nint main(void) {\n\n\treturn 0;\n}",
-    "#include<iostream>\nusing namespace std;\n\nint main(void) {\n\n\treturn 0;\n}",
+    "#include<iostream>\n#include<string>\nusing namespace std;\n\nint main(void) {\n\n\treturn 0;\n}",
     "public class Main {\n\n\tpublic static void main(String[] args) {\t\n\n\t}\n}"
 )
 
