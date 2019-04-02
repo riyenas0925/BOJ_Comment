@@ -4,7 +4,7 @@ var i = 0;
 var codeLanguage = new Array(
     "",
     "#include<stdio.h>\n\nint main(void) {\n\n\treturn 0;\n}",
-    "#include<iostream>\n#include<string>\n#include<algorithm>\nusing namespace std;\n\nint main(void) {\n\n\treturn 0;\n}",
+    "#include<iostream>\n#include<string>\n#include<algorithm>\nusing namespace std;\n\nint main(void) {\nios_base::sync_with_stdio(0);\ncin.tie(0);\n\n\treturn 0;\n}",
     "public class Main {\n\n\tpublic static void main(String[] args) {\t\n\n\t}\n}"
 )
 
@@ -120,6 +120,7 @@ function createComments(){
     comments += "*Output : " + problemComments[6] + "\n";
     comments += "*Start Time : " + time(0) + "\n";
     comments += "*End Time : " + time(1) + "\n";
+    comments += "*comments program : https://chrome.google.com/webstore/detail/boj-blog-post/ehhcjhfkaiohgflkjifmageahncijacd?hl=ko\n"
     comments += "*********************************************************************/\n\n";
     comments += selectLanguage();
     
