@@ -1,26 +1,25 @@
 {
-  "manifest_version": 2,
-  
+  "manifest_version": 3,
   "name": "BOJ Blog Post",
   "author": "riyenas0925",
   "description": "Baekjoon Online Judge Blog post HTML & comments make program",
   "homepage_url": "https://github.com/riyenas0925/Chorme-Extension-BOJ-Comments-generator",
-  "version": "1.0.6",
-
+  "version": "1.0.7",
   "background": {
-    "scripts" : ["js/background.js"]
+    "service_worker": "js/background.js"
   },
-
   "permissions": [
+    "tab",
     "activeTab",
-    "tabs"
-  ], 
-
-  "icons": { 
-   "128": "images/icon.png" 
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://acmicpc.net/"
+  ],
+  "icons": {
+    "128": "images/icon.png"
   },
-
-  "browser_action": {
+  "action": {
     "defualt_title": "Title",
     "default_popup": "popup.html",
     "default_icon": "images/icon.png"
