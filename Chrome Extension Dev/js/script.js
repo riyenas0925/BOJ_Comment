@@ -1,6 +1,5 @@
-﻿let problemComments = new Array("","","","","","");
+﻿let problemComments = new Array(6).fill('');
 let i = 0;
-
 
 let codeLanguage = {
     default: '',
@@ -15,7 +14,6 @@ const getTabId = async () => {
     let [tab] = await chrome.tabs.query(queryOptions);
     return tab.id;
 }
-
 
 async function problemParsing(tag, selector){
     const getInnerHtml = (tag) => document.querySelector(tag).innerHTML;
